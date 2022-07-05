@@ -61,6 +61,10 @@ flutter:
   assets:
     - lib/images/john_wick_3.jpeg
     - lib/images/keanu.jpeg
+    - lib/images/keanu2.jpeg
+    - lib/images/Ian_McShane.png
+    - lib/images/Haile_Berry.png
+    - lib/images/Chad_Stahkelski.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

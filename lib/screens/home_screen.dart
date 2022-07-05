@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/screens/actorInfo_screen.dart';
+import 'package:movies_app/screens/cast_screen.dart';
+import 'package:movies_app/ui/card_ui.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -17,10 +20,9 @@ class _HomeScreenState extends State<HomeScreen> {
     const String releaseDate = "05/07/2022";
 
     return Scaffold(
-        body: 
-        SingleChildScrollView(
-          child: Stack(
-      children: <Widget>[
+        body: SingleChildScrollView(
+      child: Stack(
+        children: <Widget>[
           ClipPath(
             child: ClipRRect(
               borderRadius: const BorderRadius.only(
@@ -79,11 +81,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: <Widget>[
                           Text(
                             movie_title,
-                            style: Theme.of(context).textTheme.caption!.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20,
-                                  color: Colors.black,
-                                ),
+                            style:
+                                Theme.of(context).textTheme.caption!.copyWith(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20,
+                                      color: Colors.black,
+                                    ),
                             overflow: TextOverflow.ellipsis,
                           ),
                         ],
@@ -194,8 +197,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           maxLines: 10,
                           "John Wick regresa de nuevo pero con una recompensa sobre su cabeza que persigue unos mercenarios. Tras asesinar a uno de los miembros de su gremio, Wick es expulsado y se convierte en el foco de atención de todos los sicarios de la organización.",
                           style: Theme.of(context).textTheme.caption!.copyWith(
-                                fontSize: 12,
-                                color: Colors.black,
+                                fontSize: 14,
+                                color: Colors.grey,
                               ),
                           overflow: TextOverflow.ellipsis,
                         ),
@@ -224,15 +227,26 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         Column(
                           children: [
-                            Text(
-                              "Full Cast >",
-                              style:
-                                  Theme.of(context).textTheme.caption!.copyWith(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 15,
-                                        color: Colors.grey[400],
-                                      ),
-                              overflow: TextOverflow.ellipsis,
+                            InkWell(
+                              onTap: () => {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const CastScreen()))
+                              },
+                              child: Text(
+                                "Full Cast >",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .caption!
+                                    .copyWith(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15,
+                                      color: Colors.grey[400],
+                                    ),
+                                overflow: TextOverflow.ellipsis,
+                              ),
                             ),
                           ],
                         ),
@@ -241,44 +255,34 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SizedBox(
                       height: 25,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      
-                      children: [
-                        Column(
-                          children: [
-                            Card(
-                              elevation: 25,
-                              child:
-                                SizedBox(
-                                  height: 60,
-                                  width: 150,
-                                  child: Row(
-                                    children: [
-                                      Column(
-
-                                        children: [
-                                          ClipPath(
-                                            child: ClipRRect(borderRadius: ),
-                                          )
-                                        ],
-                                      ),
-                                      Column(
-                                        children: const [
-                                          Text("Name"),
-                                          Text("Position Job")
-                                        ],
-                                      )
-                                    ],
-                                   
-                                  ),
-                                )
-                            ),
-                          ],
-                        ),
-                      ],
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: const [
+                          CardUi(
+                            name: 'Chad Stahkelski',
+                            position: 'Director',
+                            link: 'lib/images/Chad_Stahkelski.png',
+                          ),
+                          CardUi(
+                            name: 'Keanu Reeves',
+                            position: 'John Wick',
+                            link: 'lib/images/keanu.jpeg',
+                          ),
+                          CardUi(
+                            name: 'Haile Berry',
+                            position: 'Sofia',
+                            link: 'lib/images/Haile_Berry.png',
+                          ),
+                          CardUi(
+                            name: 'Ian McShane',
+                            position: 'Wingstone',
+                            link: 'lib/images/Ian_McShane.png',
+                          ),
+                        ],
+                      ),
                     ),
-
                     /*Row(
                       children: [
                         Column(
@@ -295,8 +299,8 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ],
           ),
-      ],
-    ),
-        ));
+        ],
+      ),
+    ));
   }
 }
