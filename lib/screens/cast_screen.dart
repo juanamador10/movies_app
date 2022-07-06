@@ -20,40 +20,43 @@ class CastScreen extends StatelessWidget {
           foregroundColor: Colors.black,
           elevation: 0,
         ),
-        body: Column(
-          children: const [
-            SizedBox(
-              height: 30,
-            ),
-            SizedBox(
-              height: 35,
-              child: Text(
-                "Cast",
-                style: fontStyle1,
-                textAlign: TextAlign.right,
+        body: Container(
+          margin: const EdgeInsets.all(18),
+          child: Column(
+            children: const [
+              SizedBox(
+                height: 30,
               ),
-            ),
-            CardUi2(
-              name: 'Chad Stahkelski',
-              position: 'Director',
-              link: 'lib/images/Chad_Stahkelski.png',
-            ),
-            CardUi2(
-              name: 'Keanu Reeves',
-              position: 'John Wick',
-              link: 'lib/images/keanu.jpeg',
-            ),
-            CardUi2(
-              name: 'Haile Berry',
-              position: 'Sofia',
-              link: 'lib/images/Haile_Berry.png',
-            ),
-            CardUi2(
-              name: 'Ian McShane',
-              position: 'Wingstone',
-              link: 'lib/images/Ian_McShane.png',
-            ),
-          ],
+              SizedBox(
+                height: 35,
+                child: Text(
+                  "Cast",
+                  style: fontStyle1,
+                  textAlign: TextAlign.right,
+                ),
+              ),
+              CardUi2(
+                name: 'Chad Stahkelski',
+                position: 'Director',
+                link: 'lib/images/Chad_Stahkelski.png',
+              ),
+              CardUi2(
+                name: 'Keanu Reeves',
+                position: 'John Wick',
+                link: 'lib/images/keanu.jpeg',
+              ),
+              CardUi2(
+                name: 'Haile Berry',
+                position: 'Sofia',
+                link: 'lib/images/Haile_Berry.png',
+              ),
+              CardUi2(
+                name: 'Ian McShane',
+                position: 'Wingstone',
+                link: 'lib/images/Ian_McShane.png',
+              ),
+            ],
+          ),
         ));
   }
 }
